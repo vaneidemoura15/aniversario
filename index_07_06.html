@@ -2,113 +2,393 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aniversário da Vaneide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aniversário da Vaneide 🎉</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --verde:#009c3b;
+    --amarelo:#ffdf00;
+    --azul:#003087;
+}
+
 body{
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-  color:#fff;
-  background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
-    url('1000607551.png') center top/cover no-repeat fixed;
+    font-family:'Baloo 2', cursive;
+    min-height:100vh;
+    overflow:hidden;
+    background:#000;
+    color:white;
 }
-.container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+
+/* IMAGEM PRINCIPAL */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:1;
+
+    background:url("1000607551.png")
+    center center
+    no-repeat;
+
+    background-size:contain;
+    background-color:#000;
 }
-.card{
-  width:min(95%,520px);
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:24px;
-  padding:28px;
-  text-align:center;
+
+.background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.25)
+    );
 }
-h1{font-size:2.4rem;margin-bottom:10px}
-.sub{color:#ffd700;margin-bottom:20px}
+
+/* CONTEÚDO */
+
+.content{
+    position:relative;
+    z-index:5;
+    width:100%;
+    height:100vh;
+}
+
+/* CONTADOR */
+
+.countdown-box{
+
+    position:absolute;
+    top:20px;
+    right:20px;
+
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:20px;
+
+    padding:15px;
+
+    min-width:260px;
+}
+
+.countdown-title{
+    text-align:center;
+    font-weight:800;
+    margin-bottom:10px;
+    color:var(--amarelo);
+}
+
 .countdown{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin:20px 0;
+    display:flex;
+    justify-content:center;
+    gap:10px;
 }
-.box{
-  background:rgba(255,215,0,.15);
-  border-radius:12px;
-  padding:12px;
+
+.time{
+    text-align:center;
 }
-.num{font-size:1.8rem;font-weight:bold}
-.label{font-size:.75rem}
-.info{margin:12px 0;font-size:1.05rem}
-.alerta{
-  background:rgba(255,0,0,.15);
-  padding:12px;border-radius:12px;margin:18px 0;
+
+.time span{
+    display:block;
+    font-size:1.6rem;
+    font-weight:800;
+    color:var(--amarelo);
 }
+
+.time small{
+    font-size:.75rem;
+}
+
+/* INFO */
+
+.info-box{
+
+    position:absolute;
+
+    left:50%;
+    bottom:170px;
+
+    transform:translateX(-50%);
+
+    width:min(92vw,420px);
+
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:24px;
+
+    padding:20px;
+}
+
+.info-box h2{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.info{
+    margin:10px 0;
+    font-size:1rem;
+}
+
+.comanda{
+
+    margin-top:15px;
+
+    background:rgba(255,0,0,.12);
+
+    border:1px solid rgba(255,80,80,.35);
+
+    border-radius:12px;
+
+    padding:12px;
+}
+
 .btn{
-  display:block;
-  text-decoration:none;
-  color:#fff;
-  padding:14px;
-  margin-top:12px;
-  border-radius:999px;
-  font-weight:bold;
+    display:block;
+    text-align:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:50px;
+
+    margin-top:12px;
+
+    font-weight:800;
 }
-.confirmar{background:#009c3b}
-.local{background:#003087}
+
+.btn-confirmar{
+    background:linear-gradient(135deg,#009c3b,#00b347);
+}
+
+.btn-mapa{
+    background:linear-gradient(135deg,#003087,#004ecf);
+}
+
+/* NOME SOBRE A FAIXA */
+
+.faixa-nome{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:55px;
+
+    transform:translateX(-50%);
+
+    text-align:center;
+
+    width:80%;
+}
+
+.nome{
+
+    font-family:'Bebas Neue', sans-serif;
+
+    font-size:clamp(3rem,8vw,5rem);
+
+    letter-spacing:4px;
+
+    color:#003087;
+
+    text-shadow:
+    2px 2px 0 rgba(255,255,255,.5);
+}
+
+.idade{
+
+    font-weight:800;
+
+    font-size:clamp(1rem,3vw,1.5rem);
+
+    color:#006b2d;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .countdown-box{
+
+        right:10px;
+        left:10px;
+
+        min-width:auto;
+    }
+
+    .info-box{
+
+        width:92vw;
+        bottom:145px;
+    }
+
+    .faixa-nome{
+
+        bottom:40px;
+    }
+
+    .nome{
+        font-size:3rem;
+    }
+}
+
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="card">
-    <h1>🎉 Vaneide 🎉</h1>
-    <div class="sub">Aniversário + Brasil 🇧🇷 × Egito ⚽</div>
 
-    <div class="countdown">
-      <div class="box"><div id="d" class="num">0</div><div class="label">Dias</div></div>
-      <div class="box"><div id="h" class="num">0</div><div class="label">Horas</div></div>
-      <div class="box"><div id="m" class="num">0</div><div class="label">Min</div></div>
-      <div class="box"><div id="s" class="num">0</div><div class="label">Seg</div></div>
+<div class="background"></div>
+
+<div class="content">
+
+    <!-- CONTADOR -->
+
+    <div class="countdown-box">
+
+        <div class="countdown-title">
+            🎉 Faltam...
+        </div>
+
+        <div class="countdown">
+
+            <div class="time">
+                <span id="dias">0</span>
+                <small>Dias</small>
+            </div>
+
+            <div class="time">
+                <span id="horas">0</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="time">
+                <span id="minutos">0</span>
+                <small>Min</small>
+            </div>
+
+            <div class="time">
+                <span id="segundos">0</span>
+                <small>Seg</small>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="info">📅 <strong>13 de Junho</strong></div>
-    <div class="info">🕕 <strong>18h30</strong></div>
-    <div class="info">🍢 <strong>Espetinho do Dórea</strong></div>
+    <!-- INFO -->
 
-    <div class="alerta">
-      ⚠️ <strong>Comanda individual</strong><br>
-      Cada convidado é responsável pelo próprio consumo.
+    <div class="info-box">
+
+        <h2>🎂 Aniversário da Vaneide</h2>
+
+        <div class="info">
+            📅 <strong>13 de Junho</strong>
+        </div>
+
+        <div class="info">
+            🕕 <strong>18h30</strong>
+        </div>
+
+        <div class="info">
+            ⚽ Brasil × Egito
+        </div>
+
+        <div class="info">
+            🍢 <strong>Espetinho do Dórea</strong>
+        </div>
+
+        <div class="comanda">
+            ⚠️ <strong>Comanda Individual</strong><br>
+            Cada convidado é responsável pelo próprio consumo.
+        </div>
+
+        <a
+        class="btn btn-confirmar"
+        href="https://forms.gle/d1xn5eJaxRZmWScg8"
+        target="_blank">
+        ✅ Confirmar Presença
+        </a>
+
+        <a
+        class="btn btn-mapa"
+        href="https://maps.app.goo.gl/krvP8zFDeoLQF5BP9"
+        target="_blank">
+        📍 Ver Localização
+        </a>
+
     </div>
 
-    <a class="btn confirmar" href="https://forms.gle/d1xn5eJaxRZmWScg8" target="_blank">✅ Confirmar Presença</a>
-    <a class="btn local" href="https://maps.app.goo.gl/krvP8zFDeoLQF5BP9" target="_blank">📍 Ver Localização</a>
-  </div>
+    <!-- FAIXA -->
+
+    <div class="faixa-nome">
+
+        <div class="nome">
+            VANEIDE
+        </div>
+
+        <div class="idade">
+            51 ANOS
+        </div>
+
+    </div>
+
 </div>
 
 <script>
-const evento = new Date("2026-06-13T18:30:00");
-function atualizar(){
-  const agora = new Date();
-  let dif = evento - agora;
-  if(dif < 0) dif = 0;
 
-  const dias = Math.floor(dif/86400000);
-  const horas = Math.floor((dif%86400000)/3600000);
-  const min = Math.floor((dif%3600000)/60000);
-  const seg = Math.floor((dif%60000)/1000);
+const dataEvento = new Date("2026-06-13T18:30:00");
 
-  d.textContent=dias;
-  h.textContent=horas;
-  m.textContent=min;
-  s.textContent=seg;
+function atualizarContador(){
+
+    const agora = new Date();
+
+    const diferenca = dataEvento - agora;
+
+    if(diferenca <= 0){
+        return;
+    }
+
+    const dias = Math.floor(diferenca / 1000 / 60 / 60 / 24);
+
+    const horas =
+    Math.floor((diferenca / 1000 / 60 / 60) % 24);
+
+    const minutos =
+    Math.floor((diferenca / 1000 / 60) % 60);
+
+    const segundos =
+    Math.floor((diferenca / 1000) % 60);
+
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
 }
-setInterval(atualizar,1000);
-atualizar();
+
+setInterval(atualizarContador,1000);
+atualizarContador();
+
 </script>
+
 </body>
 </html>
