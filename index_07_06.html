@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aniversário da Vaneide</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.65)),
+    url('1000607551.png') center top/cover no-repeat fixed;
+}
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.card{
+  width:min(95%,520px);
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:24px;
+  padding:28px;
+  text-align:center;
+}
+h1{font-size:2.4rem;margin-bottom:10px}
+.sub{color:#ffd700;margin-bottom:20px}
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:20px 0;
+}
+.box{
+  background:rgba(255,215,0,.15);
+  border-radius:12px;
+  padding:12px;
+}
+.num{font-size:1.8rem;font-weight:bold}
+.label{font-size:.75rem}
+.info{margin:12px 0;font-size:1.05rem}
+.alerta{
+  background:rgba(255,0,0,.15);
+  padding:12px;border-radius:12px;margin:18px 0;
+}
+.btn{
+  display:block;
+  text-decoration:none;
+  color:#fff;
+  padding:14px;
+  margin-top:12px;
+  border-radius:999px;
+  font-weight:bold;
+}
+.confirmar{background:#009c3b}
+.local{background:#003087}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>🎉 Vaneide 🎉</h1>
+    <div class="sub">Aniversário + Brasil 🇧🇷 × Egito ⚽</div>
+
+    <div class="countdown">
+      <div class="box"><div id="d" class="num">0</div><div class="label">Dias</div></div>
+      <div class="box"><div id="h" class="num">0</div><div class="label">Horas</div></div>
+      <div class="box"><div id="m" class="num">0</div><div class="label">Min</div></div>
+      <div class="box"><div id="s" class="num">0</div><div class="label">Seg</div></div>
+    </div>
+
+    <div class="info">📅 <strong>13 de Junho</strong></div>
+    <div class="info">🕕 <strong>18h30</strong></div>
+    <div class="info">🍢 <strong>Espetinho do Dórea</strong></div>
+
+    <div class="alerta">
+      ⚠️ <strong>Comanda individual</strong><br>
+      Cada convidado é responsável pelo próprio consumo.
+    </div>
+
+    <a class="btn confirmar" href="https://forms.gle/d1xn5eJaxRZmWScg8" target="_blank">✅ Confirmar Presença</a>
+    <a class="btn local" href="https://maps.app.goo.gl/krvP8zFDeoLQF5BP9" target="_blank">📍 Ver Localização</a>
+  </div>
+</div>
+
+<script>
+const evento = new Date("2026-06-13T18:30:00");
+function atualizar(){
+  const agora = new Date();
+  let dif = evento - agora;
+  if(dif < 0) dif = 0;
+
+  const dias = Math.floor(dif/86400000);
+  const horas = Math.floor((dif%86400000)/3600000);
+  const min = Math.floor((dif%3600000)/60000);
+  const seg = Math.floor((dif%60000)/1000);
+
+  d.textContent=dias;
+  h.textContent=horas;
+  m.textContent=min;
+  s.textContent=seg;
+}
+setInterval(atualizar,1000);
+atualizar();
+</script>
+</body>
+</html>
